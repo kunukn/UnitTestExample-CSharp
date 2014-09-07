@@ -1,7 +1,7 @@
-﻿using System.Web.Http;
+﻿using MyApp.App_Start;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using MyApp.App_Start;
 
 namespace MyApp
 {
@@ -16,6 +16,9 @@ namespace MyApp
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // DI Container
+            new Bootstrap().Configure();
         }
     }
 }
