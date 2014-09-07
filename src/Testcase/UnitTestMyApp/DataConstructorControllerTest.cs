@@ -8,7 +8,10 @@ using System.Web.Mvc;
 
 namespace UnitTestMyApp
 {
-    [TestClass]
+    /// <summary>
+    /// Naming standard: MethodName_StateUnderTest_ExpectedBehavior
+    /// </summary>
+    [TestClass]   
     public class DataConstructorControllerTest
     {
         // Arrange
