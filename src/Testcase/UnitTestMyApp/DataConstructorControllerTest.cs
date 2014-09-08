@@ -14,7 +14,7 @@ namespace UnitTestMyApp
     [TestClass]   
     public class DataConstructorControllerTest
     {
-        // Arrange
+        // Injected services
         private IDataService dataService;
         private IReportService reportService;
 
@@ -30,7 +30,7 @@ namespace UnitTestMyApp
         }
 
         [TestMethod]
-        public void GetData_WhenCalledWithAnythingButFoo_ReturnsJsonResult()
+        public void GetData_WhenCalledWithAnythingButFoo_InvokeGetDataAndReturnsJsonResult()
         {
             // Arrange            
             var controller = new DataConstructorController(dataService, reportService);
@@ -52,7 +52,7 @@ namespace UnitTestMyApp
 
 
         [TestMethod]
-        public void GetData_WhenCalledWithFoo_ReturnsHttpDenied()
+        public void GetData_WhenCalledWithFoo_InvokeReportAbuseUsageAndReturnsHttpDenied()
         {
             // Arrange            
             var controller = new DataConstructorController(dataService, reportService);            
