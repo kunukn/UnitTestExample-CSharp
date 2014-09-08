@@ -17,14 +17,14 @@ namespace MyApp.Controllers
         }
         
         public ActionResult GetData(string subject)
-        {
-            IList<string> data = dataService.GetData(subject);
-            
+        {            
             if (subject == "foo")
             {
                 reportService.ReportAbuseUsage(subject);
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
+
+            IList<string> data = dataService.GetData(subject);
             
             return Json(data, JsonRequestBehavior.AllowGet);
         }

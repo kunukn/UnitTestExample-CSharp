@@ -67,7 +67,7 @@ namespace UnitTestMyApp
             Assert.AreEqual(fooHttpStatusCodeResult.StatusCode, forbidden.StatusCode);
 
             dataService
-                .AssertWasCalled(s => s.GetData(Arg<string>.Is.Anything));
+                .AssertWasNotCalled(s => s.GetData(Arg<string>.Is.Anything));
 
             reportService
                 .AssertWasCalled(s => s.ReportAbuseUsage(Arg<string>.Is.Anything));
