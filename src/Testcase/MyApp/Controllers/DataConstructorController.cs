@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
+using MyApp.Services;
 
 namespace MyApp.Controllers
 {
@@ -15,9 +16,14 @@ namespace MyApp.Controllers
             this.dataService = dataService;
             this.reportService = reportService;
         }
-        
+
+        public DataConstructorController()
+            : this(new DataService(), new ReportService())
+        {
+        }
+
         public ActionResult GetData(string subject)
-        {            
+        {
             if (subject == "foo")
             {
                 reportService.ReportAbuseUsage(subject);
@@ -25,7 +31,7 @@ namespace MyApp.Controllers
             }
 
             IList<string> data = dataService.GetData(subject);
-            
+
             return Json(data, JsonRequestBehavior.AllowGet);
         }
     }

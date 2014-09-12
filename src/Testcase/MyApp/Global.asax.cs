@@ -15,10 +15,7 @@ namespace MyApp
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            // DI Container
-            new Bootstrap().Configure();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
     }
 }
